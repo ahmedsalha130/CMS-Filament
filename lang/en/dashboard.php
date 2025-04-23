@@ -66,4 +66,14 @@ return [
     'link_url' => 'Link URL',
     'general_setting'=>'General',
     'footer_setting'=>'Footer',
+    'theme_setting'=>'Theme',
+
+    'services'=>'Services',
+    'service'=>'Service',
+
+    'icon' => 'Icon',
+    'link' => 'Link',
+    'order' => 'Order',
+    'description_ar' => 'Description Arabic',
+    'description_en' => 'Description English',
 ];

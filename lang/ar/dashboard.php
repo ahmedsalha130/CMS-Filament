@@ -45,10 +45,10 @@ return [
     'created_to' => 'تاريخ النهاية',
     'to' => 'إلى',
     'likes' => 'الإعجابات',
-    'tags'=>'علامات',
-    'tag'=>'علامة',
-    'contacts'=>'جهات الاتصال',
-    'contact'=>'جهة اتصال',
+    'tags' => 'علامات',
+    'tag' => 'علامة',
+    'contacts' => 'جهات الاتصال',
+    'contact' => 'جهة اتصال',
 
     'email' => 'البريد الإلكتروني',
     'phone' => 'رقم الهاتف',
@@ -66,9 +66,17 @@ return [
     'links' => 'الروابط',
     'link_label' => 'اسم الرابط',
     'link_url' => 'رابط URL',
-    'general_setting'=>'العامة',
-    'footer_setting'=>'الذيل',
+    'general_setting' => 'الإعدادات العامة',
+    'footer_setting' => 'إعدادات الذيل',
+    'theme_setting' => 'إعدادات الثيم',
 
+    'services' => 'الخدمات',
+    'service' => 'الخدمة',
+    'icon' => 'أيقونة',
+    'link' => 'رابط',
+    'order' => 'ترتيب',
+    'description_ar' => 'الوصف بالعربية',
+    'description_en' => 'الوصف بالإنجليزية',
 
 
 
