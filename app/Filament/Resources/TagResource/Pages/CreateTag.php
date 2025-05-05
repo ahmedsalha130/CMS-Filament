@@ -39,6 +39,7 @@ class CreateTag extends CreateRecord
                         ->title('Tag created successfully')
                         ->success()
                         ->send();
+
                 }),
         ];
     }

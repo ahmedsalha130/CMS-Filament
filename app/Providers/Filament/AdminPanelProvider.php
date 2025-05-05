@@ -30,13 +30,13 @@ class AdminPanelProvider extends PanelProvider
             ->globalSearchDebounce('750ms')
             ->path('admin')
             ->login()
-            ->brandLogo(asset('storage/categories/01JRZ7VCM62QYVY431GB7YKJMN.png'))
+            ->brandName('CMS')
+            ->brandLogo(asset('storage/').'/'.setting("site_logo"))
 
-
-        ->colors([
+            ->colors([
                 'primary' => Color::Sky,
             ])
-            ->font(app()->getLocale() === 'en'  ? 'Cairo' : '')
+            ->font(app()->getLocale() === 'en' ? 'Cairo' : '')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -61,8 +61,18 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            //FilamentPWAPlugin
+
+
+            ->plugin(
+                \TomatoPHP\FilamentSeo\FilamentSeoPlugin::make())
             ->plugin(\TomatoPHP\FilamentPWA\FilamentPWAPlugin::make())
-            ;
+            ->plugin(
+                \TomatoPHP\FilamentSettingsHub\FilamentSettingsHubPlugin::make()
+                    ->allowSiteSettings()
+                    ->allowSocialMenuSettings()
+            )
+
+        ->plugin(\TomatoPHP\FilamentMediaManager\FilamentMediaManagerPlugin::make());
+
     }
 }

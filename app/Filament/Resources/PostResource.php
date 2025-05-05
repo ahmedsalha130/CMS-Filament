@@ -21,6 +21,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use TomatoPHP\FilamentMediaManager\Form\MediaManagerInput;
 
 class PostResource extends Resource
 {
@@ -143,14 +144,30 @@ class PostResource extends Resource
                     ->label(__('dashboard.is_active'))
                     ->default(true),
 
-                SpatieMediaLibraryFileUpload::make('main_image')
-                    ->collection('main_image')
-                    ->directory('posts/main_image')
+
+                MediaManagerInput::make('main_image')
+                    ->disk('public')
                     ->columnSpan('full')
-                    ->preserveFilenames() // Optional: keep original file name
-                    ->getUploadedFileNameForStorageUsing(function ($file) {
-                        return Str::slug(request('title_en')) . '-' . time() . '.' . $file->getClientOriginalExtension();
-                    }),
+                    ->required()
+
+
+            ->schema([
+//                        Forms\Components\TextInput::make('title')
+//                            ->required()
+//                            ->maxLength(255),
+//                        Forms\Components\TextInput::make('description')
+//                            ->required()
+//                            ->maxLength(255),
+                    ]),
+            // main images
+//                SpatieMediaLibraryFileUpload::make('main_image')
+//                    ->collection('main_image')
+//                    ->directory('posts/main_image')
+//                    ->columnSpan('full')
+//                    ->preserveFilenames() // Optional: keep original file name
+//                    ->getUploadedFileNameForStorageUsing(function ($file) {
+//                        return Str::slug(request('title_en')) . '-' . time() . '.' . $file->getClientOriginalExtension();
+//                    }),
 
                 SpatieMediaLibraryFileUpload::make('images')
                     ->label(__('dashboard.images'))
@@ -158,6 +175,8 @@ class PostResource extends Resource
                     ->multiple()
                     ->directory('posts/images')
                     ->columnSpan('full'),
+
+
             ]);
 
 
